@@ -1,0 +1,24 @@
+{
+  "baseUrl": "https://test-api.k6.io/",
+  "stages": [
+    {
+      "duration": "30s",
+      "target": 20
+    },
+    {
+      "duration": "5m",
+      "target": 20
+    },
+    {
+      "duration": "30s",
+      "target": 0
+    }
+  ],
+  "thresholds": {
+    "http_req_duration": ["avg<300", "p(95)<300"],
+    "check_failure_rate": ["rate<0.01"]
+  },
+  "noConnectionReuse": true,
+  "userAgent": "MyK6UserAgentString/1.0"
+
+}
