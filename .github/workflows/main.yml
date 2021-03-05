@@ -1,0 +1,24 @@
+name: CI Auto Load Test
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  #push:
+   # branches: [ master ]
+ # pull_request:
+   # branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  k6_load_test:
+    name: k6 Load Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Run local k6 test
+        uses: k6io/action@v0.1
+        with:
+          filename: Api-test-script.js
+          flags: --config config.json
