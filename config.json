@@ -1,13 +1,18 @@
 {
   "baseUrl": "https://test-api.k6.io/",
+  "ext": {
+    "loadimpact": {
+      "projectID": 3528751
+    }
+  },
   "stages": [
     {
       "duration": "30s",
-      "target": 20
+      "target": 40
     },
     {
       "duration": "5m",
-      "target": 20
+      "target": 40
     },
     {
       "duration": "30s",
@@ -15,10 +20,19 @@
     }
   ],
   "thresholds": {
-    "http_req_duration": ["avg<300", "p(95)<300"],
-    "check_failure_rate": ["rate<0.01"]
+    "http_req_duration": [
+      "avg<500",
+      "p(95)<500"
+    ],
+    "check_failure_rate": [
+      "rate<0.01"
+    ]
   },
   "noConnectionReuse": true,
-  "userAgent": "MyK6UserAgentString/1.0"
-
+  "userAgent": "MyK6UserAgentString/1.0",
+  "collectors": {
+    "cloud": {
+      "token": "3d21c047321542ddcb73db0b816e1981be12cfc65c5bc011b25eb81748489e37"
+    }
+  }
 }
