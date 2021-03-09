@@ -11,14 +11,14 @@ export default function () {
             'Public Crocodiles is not empty': (arr) => arr.length !== 0
         });
 
-        thinkTime();
+        // thinkTime();
 
-        // 2. View details of a public crocodile
-        const id = randomId(arrIds);
-        response = http.get(`${config.baseUrl}/public/crocodiles/${id}/`);
-        check(response, {
-            'Response status of details public crocodile request is 200': (r) => r.status === 200
-        });
+        // // 2. View details of a public crocodile
+        // const id = randomId(arrIds);
+        // response = http.get(`${config.baseUrl}/public/crocodiles/${id}/`);
+        // check(response, {
+        //     'Response status of details public crocodile request is 200': (r) => r.status === 200
+        // });
     });
 
     // group('Create my own crocodile ', () => {
