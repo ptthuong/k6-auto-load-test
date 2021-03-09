@@ -18,8 +18,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install k6 by homebrew
+        run: brew install k6
       - name: Run local k6 test
-        uses: k6io/action@v0.1
-        with:
-          filename: Api-test-script.js
-          flags: --config config.json
+        run: k6 run Api-test-script.js --config config.json --out influxdb=http://localhost:8086/myk6db
+#        uses: k6io/action@v0.1
+#        with:
+#          filename: Api-test-script.js
+#          flags: --config config.json
