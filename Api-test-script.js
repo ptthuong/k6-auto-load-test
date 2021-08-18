@@ -54,8 +54,6 @@ export default (authToken) => { // VU code
             tags: tag
         });
 
-        console.log('====>', authToken);
-
         // 1. Create private crocodile
         const payload = {
             name: `Name ${randomString(10)}`,
@@ -67,14 +65,8 @@ export default (authToken) => { // VU code
             `${config.baseUrl}/my/crocodiles/`,
             payload,
             requestConfigWithTag({ name: 'Create' }));
-
-        let createdUrl = '';
-        if (check(createResponse, { 'Croc created correctly': (r) => r.status === 201 })) {
-            createdUrl = `${config.baseUrl}/my/crocodiles/${createResponse.json('id')}/`;
-        } else {
-            console.log(`Unable to create a Croc ${createResponse.status} ${createResponse.body}`);
-            return;
-        }
+        
+        check(createResponse, { 'Croc created correctly': (r) => r.status === 201 })
     })
 }
 
