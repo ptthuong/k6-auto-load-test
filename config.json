@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://test-api.k6.io/",
+  "baseUrl": "https://test-api.k6.io",
   "ext": {
     "loadimpact": {
       "projectID": 3528751
@@ -8,21 +8,20 @@
   "stages": [
     {
       "duration": "30s",
-      "target": 70
+      "target": 20
     },
     {
-      "duration": "5m",
-      "target": 70
+      "duration": "2m",
+      "target": 20
     },
     {
-      "duration": "30s",
+      "duration": "20",
       "target": 0
     }
   ],
   "thresholds": {
     "http_req_duration": [
-      "avg<500",
-      "p(95)<500"
+      "p(95)<700"
     ],
     "check_failure_rate": [
       "rate<0.01"
