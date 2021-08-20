@@ -11,12 +11,8 @@
       "target": 20
     },
     {
-      "duration": "2m",
+      "duration": "1m",
       "target": 20
-    },
-    {
-      "duration": "20s",
-      "target": 0
     }
   ],
   "thresholds": {
